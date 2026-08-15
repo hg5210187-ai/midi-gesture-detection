@@ -118,5 +118,7 @@ as an upper bound on what a second person would get.
 
 ## Citation
 Glenn Jocher and Jing Qiu(2026) _Ultralytics YOLO 26_  [Computer software] GitHub.(https://github.com/ultralytics/yolo26)
+
 Shihua Huang, Yongjie Hou, Longfei Liu, Xuanlong Yu, and Xi Shen(2025) _[DEIMv2] Real Time Object Detection Meets DINOv3_ [Computer software] GitHub.(https://github.com/Intellindust-AI-Lab/DEIMv2)
+
 If this is useful, please cite the report. Study conducted August 2026.
