@@ -1,0 +1,376 @@
+{
+  "arch": "yolo26",
+  "model": "hbb-x-640",
+  "folds": [
+    "fold0",
+    "fold1",
+    "fold2"
+  ],
+  "pooled_over": "each fold checkpoint scored on its own held-out fold",
+  "test_set_used": false,
+  "geom": "hbb",
+  "imgsz": 640,
+  "iou": 0.5,
+  "labels": [
+    "thumbout",
+    "openhand",
+    "closedhand",
+    "background"
+  ],
+  "operating_threshold": 0.3,
+  "confusion_matrix": [
+    [
+      19,
+      0,
+      4,
+      7
+    ],
+    [
+      0,
+      26,
+      0,
+      4
+    ],
+    [
+      3,
+      0,
+      20,
+      7
+    ],
+    [
+      3,
+      4,
+      4,
+      0
+    ]
+  ],
+  "per_class": {
+    "thumbout": {
+      "precision": 0.76,
+      "recall": 0.633333,
+      "f1": 0.690909,
+      "tp": 19,
+      "fp": 6,
+      "fn": 11
+    },
+    "openhand": {
+      "precision": 0.866667,
+      "recall": 0.866667,
+      "f1": 0.866667,
+      "tp": 26,
+      "fp": 4,
+      "fn": 4
+    },
+    "closedhand": {
+      "precision": 0.714286,
+      "recall": 0.666667,
+      "f1": 0.689655,
+      "tp": 20,
+      "fp": 8,
+      "fn": 10
+    }
+  },
+  "accuracy_over_all_gt": 0.722222,
+  "fixed_threshold": 0.25,
+  "confusion_matrix_at_fixed": [
+    [
+      19,
+      0,
+      4,
+      7
+    ],
+    [
+      0,
+      27,
+      0,
+      3
+    ],
+    [
+      3,
+      0,
+      21,
+      6
+    ],
+    [
+      3,
+      7,
+      7,
+      0
+    ]
+  ],
+  "per_class_at_fixed": {
+    "thumbout": {
+      "precision": 0.76,
+      "recall": 0.633333,
+      "f1": 0.690909,
+      "tp": 19,
+      "fp": 6,
+      "fn": 11
+    },
+    "openhand": {
+      "precision": 0.794118,
+      "recall": 0.9,
+      "f1": 0.84375,
+      "tp": 27,
+      "fp": 7,
+      "fn": 3
+    },
+    "closedhand": {
+      "precision": 0.65625,
+      "recall": 0.7,
+      "f1": 0.677419,
+      "tp": 21,
+      "fp": 11,
+      "fn": 9
+    }
+  },
+  "threshold_sweep": [
+    {
+      "conf": 0.05,
+      "macro_f1": 0.49773,
+      "miss": 4,
+      "false_alarm": 131
+    },
+    {
+      "conf": 0.1,
+      "macro_f1": 0.619413,
+      "miss": 7,
+      "false_alarm": 65
+    },
+    {
+      "conf": 0.15,
+      "macro_f1": 0.684266,
+      "miss": 9,
+      "false_alarm": 38
+    },
+    {
+      "conf": 0.2,
+      "macro_f1": 0.728798,
+      "miss": 13,
+      "false_alarm": 24
+    },
+    {
+      "conf": 0.25,
+      "macro_f1": 0.737359,
+      "miss": 16,
+      "false_alarm": 17
+    },
+    {
+      "conf": 0.3,
+      "macro_f1": 0.749077,
+      "miss": 18,
+      "false_alarm": 11
+    },
+    {
+      "conf": 0.35,
+      "macro_f1": 0.72995,
+      "miss": 22,
+      "false_alarm": 9
+    },
+    {
+      "conf": 0.4,
+      "macro_f1": 0.732774,
+      "miss": 25,
+      "false_alarm": 6
+    },
+    {
+      "conf": 0.45,
+      "macro_f1": 0.729953,
+      "miss": 27,
+      "false_alarm": 3
+    },
+    {
+      "conf": 0.5,
+      "macro_f1": 0.702327,
+      "miss": 31,
+      "false_alarm": 2
+    },
+    {
+      "conf": 0.55,
+      "macro_f1": 0.661235,
+      "miss": 37,
+      "false_alarm": 2
+    },
+    {
+      "conf": 0.6,
+      "macro_f1": 0.63182,
+      "miss": 42,
+      "false_alarm": 1
+    },
+    {
+      "conf": 0.65,
+      "macro_f1": 0.57398,
+      "miss": 49,
+      "false_alarm": 1
+    },
+    {
+      "conf": 0.7,
+      "macro_f1": 0.552598,
+      "miss": 54,
+      "false_alarm": 0
+    },
+    {
+      "conf": 0.75,
+      "macro_f1": 0.453354,
+      "miss": 62,
+      "false_alarm": 0
+    },
+    {
+      "conf": 0.8,
+      "macro_f1": 0.3801,
+      "miss": 67,
+      "false_alarm": 0
+    },
+    {
+      "conf": 0.85,
+      "macro_f1": 0.323529,
+      "miss": 72,
+      "false_alarm": 0
+    },
+    {
+      "conf": 0.9,
+      "macro_f1": 0.267974,
+      "miss": 76,
+      "false_alarm": 0
+    },
+    {
+      "conf": 0.95,
+      "macro_f1": 0.063172,
+      "miss": 87,
+      "false_alarm": 0
+    }
+  ],
+  "auc": {
+    "per_class": {
+      "thumbout": 0.927528,
+      "openhand": 1.0,
+      "closedhand": 0.954997
+    },
+    "curves": {
+      "thumbout": {
+        "fpr": [
+          0.0,
+          0.0,
+          0.0,
+          0.01695,
+          0.01695,
+          0.0339,
+          0.0339,
+          0.05085,
+          0.05085,
+          0.0678,
+          0.0678,
+          0.10169,
+          0.10169,
+          0.15254,
+          0.15254,
+          0.16949,
+          0.16949,
+          0.28814,
+          0.28814,
+          0.38983,
+          0.38983,
+          0.50847,
+          1.0
+        ],
+        "tpr": [
+          0.0,
+          0.03448,
+          0.17241,
+          0.17241,
+          0.31034,
+          0.31034,
+          0.55172,
+          0.55172,
+          0.65517,
+          0.65517,
+          0.72414,
+          0.72414,
+          0.7931,
+          0.7931,
+          0.89655,
+          0.89655,
+          0.93103,
+          0.93103,
+          0.96552,
+          0.96552,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "openhand": {
+        "fpr": [
+          0.0,
+          0.0,
+          0.0,
+          0.56897,
+          1.0
+        ],
+        "tpr": [
+          0.0,
+          0.03333,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "closedhand": {
+        "fpr": [
+          0.0,
+          0.0,
+          0.0,
+          0.0339,
+          0.0339,
+          0.05085,
+          0.05085,
+          0.08475,
+          0.08475,
+          0.10169,
+          0.10169,
+          0.11864,
+          0.11864,
+          0.13559,
+          0.13559,
+          0.15254,
+          0.15254,
+          0.16949,
+          0.16949,
+          0.30508,
+          1.0
+        ],
+        "tpr": [
+          0.0,
+          0.03448,
+          0.51724,
+          0.51724,
+          0.58621,
+          0.58621,
+          0.68966,
+          0.68966,
+          0.75862,
+          0.75862,
+          0.7931,
+          0.7931,
+          0.89655,
+          0.89655,
+          0.93103,
+          0.93103,
+          0.96552,
+          0.96552,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "macro": 0.960842
+  },
+  "n_images": 45,
+  "n_gt": 90,
+  "n_scored": 88,
+  "caveats": [
+    "The operating threshold 0.3 maximises macro-F1 on these same predictions, so per-class P/R/F1 are an upper bound; a threshold picked on held-out data would score no higher. AUC does not depend on it.",
+    "AUC covers only ground-truth hands localised at IoU>=0.5 (88/90); it measures classification given detection. Missed hands appear in the background column, not the AUC."
+  ]
+}

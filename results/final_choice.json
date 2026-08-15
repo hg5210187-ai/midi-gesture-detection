@@ -1,0 +1,45 @@
+{
+  "deployment_choice": "yolo26 hbb-s @ 320",
+  "cv_map": {
+    "mean": 0.805638,
+    "sd": 0.043695,
+    "n": 3
+  },
+  "test_map": 0.685541,
+  "sustained": {
+    "ms": 7.93,
+    "p95": 8.83,
+    "holds": true,
+    "cold": true,
+    "breach": null,
+    "iters": 111884,
+    "first": 7.72,
+    "last": 8.26
+  },
+  "pareto": [
+    {
+      "geom": "hbb",
+      "size": "n",
+      "imgsz": 320,
+      "ms": 7.22,
+      "burst_ms": 7.09,
+      "sustained": true,
+      "map": 0.69022,
+      "sd": 0.050698,
+      "folds": 3,
+      "meets": true
+    },
+    {
+      "geom": "hbb",
+      "size": "s",
+      "imgsz": 320,
+      "ms": 7.93,
+      "burst_ms": 7.54,
+      "sustained": true,
+      "map": 0.805638,
+      "sd": 0.043695,
+      "folds": 3,
+      "meets": true
+    }
+  ]
+}

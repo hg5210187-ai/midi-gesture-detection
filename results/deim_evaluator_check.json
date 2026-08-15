@@ -1,0 +1,170 @@
+[
+  {
+    "model": "atto",
+    "fold": "fold0",
+    "cocoeval": 0.05,
+    "exact": 0.051358,
+    "delta": -0.001357999999999998
+  },
+  {
+    "model": "atto",
+    "fold": "fold1",
+    "cocoeval": 0.115,
+    "exact": 0.112609,
+    "delta": 0.0023910000000000042
+  },
+  {
+    "model": "atto",
+    "fold": "fold2",
+    "cocoeval": 0.029,
+    "exact": 0.028625,
+    "delta": 0.00037500000000000033
+  },
+  {
+    "model": "femto",
+    "fold": "fold0",
+    "cocoeval": 0.066,
+    "exact": 0.065192,
+    "delta": 0.0008080000000000032
+  },
+  {
+    "model": "femto",
+    "fold": "fold1",
+    "cocoeval": 0.107,
+    "exact": 0.092731,
+    "delta": 0.014269000000000004
+  },
+  {
+    "model": "femto",
+    "fold": "fold2",
+    "cocoeval": 0.239,
+    "exact": 0.234829,
+    "delta": 0.00417099999999998
+  },
+  {
+    "model": "l",
+    "fold": "fold0",
+    "cocoeval": 0.853,
+    "exact": 0.852563,
+    "delta": 0.0004370000000000207
+  },
+  {
+    "model": "l",
+    "fold": "fold1",
+    "cocoeval": 0.86,
+    "exact": 0.86049,
+    "delta": -0.0004899999999999904
+  },
+  {
+    "model": "l",
+    "fold": "fold2",
+    "cocoeval": 0.815,
+    "exact": 0.81546,
+    "delta": -0.00046000000000001595
+  },
+  {
+    "model": "m",
+    "fold": "fold0",
+    "cocoeval": 0.856,
+    "exact": 0.856169,
+    "delta": -0.00016899999999997473
+  },
+  {
+    "model": "m",
+    "fold": "fold1",
+    "cocoeval": 0.839,
+    "exact": 0.839051,
+    "delta": -5.100000000002325e-05
+  },
+  {
+    "model": "m",
+    "fold": "fold2",
+    "cocoeval": 0.791,
+    "exact": 0.793247,
+    "delta": -0.002246999999999999
+  },
+  {
+    "model": "n",
+    "fold": "fold0",
+    "cocoeval": 0.808,
+    "exact": 0.806441,
+    "delta": 0.001559000000000088
+  },
+  {
+    "model": "n",
+    "fold": "fold1",
+    "cocoeval": 0.799,
+    "exact": 0.80038,
+    "delta": -0.0013799999999999368
+  },
+  {
+    "model": "n",
+    "fold": "fold2",
+    "cocoeval": 0.77,
+    "exact": 0.76981,
+    "delta": 0.00019000000000002348
+  },
+  {
+    "model": "pico",
+    "fold": "fold0",
+    "cocoeval": 0.087,
+    "exact": 0.089103,
+    "delta": -0.0021030000000000076
+  },
+  {
+    "model": "pico",
+    "fold": "fold1",
+    "cocoeval": 0.11,
+    "exact": 0.107384,
+    "delta": 0.002616000000000007
+  },
+  {
+    "model": "pico",
+    "fold": "fold2",
+    "cocoeval": 0.072,
+    "exact": 0.058531,
+    "delta": 0.013468999999999995
+  },
+  {
+    "model": "s",
+    "fold": "fold0",
+    "cocoeval": 0.871,
+    "exact": 0.867726,
+    "delta": 0.003273999999999999
+  },
+  {
+    "model": "s",
+    "fold": "fold1",
+    "cocoeval": 0.823,
+    "exact": 0.822602,
+    "delta": 0.00039799999999989844
+  },
+  {
+    "model": "s",
+    "fold": "fold2",
+    "cocoeval": 0.832,
+    "exact": 0.83245,
+    "delta": -0.00045000000000006146
+  },
+  {
+    "model": "x",
+    "fold": "fold0",
+    "cocoeval": 0.843,
+    "exact": 0.839745,
+    "delta": 0.003255000000000008
+  },
+  {
+    "model": "x",
+    "fold": "fold1",
+    "cocoeval": 0.856,
+    "exact": 0.857581,
+    "delta": -0.0015810000000000546
+  },
+  {
+    "model": "x",
+    "fold": "fold2",
+    "cocoeval": 0.813,
+    "exact": 0.803692,
+    "delta": 0.009307999999999983
+  }
+]

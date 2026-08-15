@@ -1,0 +1,352 @@
+{
+  "arch": "yolo26",
+  "model": "obb-s-640",
+  "folds": [
+    "fold0",
+    "fold1",
+    "fold2"
+  ],
+  "pooled_over": "each fold checkpoint scored on its own held-out fold",
+  "test_set_used": false,
+  "geom": "obb",
+  "imgsz": 640,
+  "iou": 0.5,
+  "labels": [
+    "thumbout",
+    "openhand",
+    "closedhand",
+    "background"
+  ],
+  "operating_threshold": 0.45,
+  "confusion_matrix": [
+    [
+      20,
+      0,
+      3,
+      7
+    ],
+    [
+      0,
+      29,
+      0,
+      1
+    ],
+    [
+      2,
+      0,
+      25,
+      3
+    ],
+    [
+      0,
+      1,
+      0,
+      0
+    ]
+  ],
+  "per_class": {
+    "thumbout": {
+      "precision": 0.909091,
+      "recall": 0.666667,
+      "f1": 0.769231,
+      "tp": 20,
+      "fp": 2,
+      "fn": 10
+    },
+    "openhand": {
+      "precision": 0.966667,
+      "recall": 0.966667,
+      "f1": 0.966667,
+      "tp": 29,
+      "fp": 1,
+      "fn": 1
+    },
+    "closedhand": {
+      "precision": 0.892857,
+      "recall": 0.833333,
+      "f1": 0.862069,
+      "tp": 25,
+      "fp": 3,
+      "fn": 5
+    }
+  },
+  "accuracy_over_all_gt": 0.822222,
+  "fixed_threshold": 0.25,
+  "confusion_matrix_at_fixed": [
+    [
+      22,
+      0,
+      3,
+      5
+    ],
+    [
+      0,
+      30,
+      0,
+      0
+    ],
+    [
+      2,
+      0,
+      26,
+      2
+    ],
+    [
+      6,
+      2,
+      2,
+      0
+    ]
+  ],
+  "per_class_at_fixed": {
+    "thumbout": {
+      "precision": 0.733333,
+      "recall": 0.733333,
+      "f1": 0.733333,
+      "tp": 22,
+      "fp": 8,
+      "fn": 8
+    },
+    "openhand": {
+      "precision": 0.9375,
+      "recall": 1.0,
+      "f1": 0.967742,
+      "tp": 30,
+      "fp": 2,
+      "fn": 0
+    },
+    "closedhand": {
+      "precision": 0.83871,
+      "recall": 0.866667,
+      "f1": 0.852459,
+      "tp": 26,
+      "fp": 5,
+      "fn": 4
+    }
+  },
+  "threshold_sweep": [
+    {
+      "conf": 0.05,
+      "macro_f1": 0.732806,
+      "miss": 0,
+      "false_alarm": 47
+    },
+    {
+      "conf": 0.1,
+      "macro_f1": 0.787759,
+      "miss": 1,
+      "false_alarm": 30
+    },
+    {
+      "conf": 0.15,
+      "macro_f1": 0.807472,
+      "miss": 4,
+      "false_alarm": 24
+    },
+    {
+      "conf": 0.2,
+      "macro_f1": 0.833007,
+      "miss": 4,
+      "false_alarm": 17
+    },
+    {
+      "conf": 0.25,
+      "macro_f1": 0.851178,
+      "miss": 7,
+      "false_alarm": 10
+    },
+    {
+      "conf": 0.3,
+      "macro_f1": 0.849681,
+      "miss": 8,
+      "false_alarm": 9
+    },
+    {
+      "conf": 0.35,
+      "macro_f1": 0.858432,
+      "miss": 10,
+      "false_alarm": 4
+    },
+    {
+      "conf": 0.4,
+      "macro_f1": 0.856492,
+      "miss": 11,
+      "false_alarm": 3
+    },
+    {
+      "conf": 0.45,
+      "macro_f1": 0.865989,
+      "miss": 11,
+      "false_alarm": 1
+    },
+    {
+      "conf": 0.5,
+      "macro_f1": 0.856303,
+      "miss": 14,
+      "false_alarm": 1
+    },
+    {
+      "conf": 0.55,
+      "macro_f1": 0.859506,
+      "miss": 17,
+      "false_alarm": 1
+    },
+    {
+      "conf": 0.6,
+      "macro_f1": 0.841901,
+      "miss": 20,
+      "false_alarm": 0
+    },
+    {
+      "conf": 0.65,
+      "macro_f1": 0.82669,
+      "miss": 22,
+      "false_alarm": 0
+    },
+    {
+      "conf": 0.7,
+      "macro_f1": 0.832048,
+      "miss": 23,
+      "false_alarm": 0
+    },
+    {
+      "conf": 0.75,
+      "macro_f1": 0.808966,
+      "miss": 26,
+      "false_alarm": 0
+    },
+    {
+      "conf": 0.8,
+      "macro_f1": 0.750794,
+      "miss": 32,
+      "false_alarm": 0
+    },
+    {
+      "conf": 0.85,
+      "macro_f1": 0.700142,
+      "miss": 39,
+      "false_alarm": 0
+    },
+    {
+      "conf": 0.9,
+      "macro_f1": 0.60801,
+      "miss": 49,
+      "false_alarm": 0
+    },
+    {
+      "conf": 0.95,
+      "macro_f1": 0.28197,
+      "miss": 75,
+      "false_alarm": 0
+    }
+  ],
+  "auc": {
+    "per_class": {
+      "thumbout": 0.975556,
+      "openhand": 1.0,
+      "closedhand": 0.978333
+    },
+    "curves": {
+      "thumbout": {
+        "fpr": [
+          0.0,
+          0.0,
+          0.0,
+          0.01667,
+          0.01667,
+          0.03333,
+          0.03333,
+          0.05,
+          0.05,
+          0.08333,
+          0.08333,
+          0.16667,
+          0.16667,
+          0.86667,
+          1.0
+        ],
+        "tpr": [
+          0.0,
+          0.03333,
+          0.36667,
+          0.36667,
+          0.63333,
+          0.63333,
+          0.83333,
+          0.83333,
+          0.93333,
+          0.93333,
+          0.96667,
+          0.96667,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "openhand": {
+        "fpr": [
+          0.0,
+          0.0,
+          0.0,
+          0.55,
+          1.0
+        ],
+        "tpr": [
+          0.0,
+          0.03333,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "closedhand": {
+        "fpr": [
+          0.0,
+          0.0,
+          0.0,
+          0.03333,
+          0.03333,
+          0.05,
+          0.05,
+          0.06667,
+          0.06667,
+          0.1,
+          0.1,
+          0.16667,
+          0.16667,
+          0.18333,
+          0.18333,
+          0.36667,
+          1.0
+        ],
+        "tpr": [
+          0.0,
+          0.03333,
+          0.76667,
+          0.76667,
+          0.8,
+          0.8,
+          0.86667,
+          0.86667,
+          0.9,
+          0.9,
+          0.93333,
+          0.93333,
+          0.96667,
+          0.96667,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "macro": 0.98463
+  },
+  "n_images": 45,
+  "n_gt": 90,
+  "n_scored": 90,
+  "caveats": [
+    "The operating threshold 0.45 maximises macro-F1 on these same predictions, so per-class P/R/F1 are an upper bound; a threshold picked on held-out data would score no higher. AUC does not depend on it.",
+    "AUC covers only ground-truth hands localised at IoU>=0.5 (90/90); it measures classification given detection. Missed hands appear in the background column, not the AUC."
+  ]
+}

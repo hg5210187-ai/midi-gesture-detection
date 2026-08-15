@@ -1,0 +1,61 @@
+id,original,place,group,width,height,left_class,right_class,left_area,right_area,label_sequence
+e01_p01,Photo on 2026-08-11 at 13.18.jpg,E01,fold0,2238,1492,openhand,openhand,163769,148991,1 1
+e01_p02,Photo on 2026-08-11 at 18.41.jpg,E01,fold0,2238,1492,closedhand,openhand,69670,167266,2 1
+e01_p03,Photo on 2026-08-11 at 13.19 #2.jpg,E01,fold0,2238,1492,thumbout,thumbout,109864,150104,0 0
+e02_p01,Photo on 2026-08-11 at 13.20.jpg,E02,fold0,2238,1492,closedhand,openhand,167327,249860,2 1
+e02_p02,Photo on 2026-08-11 at 13.21.jpg,E02,fold0,2238,1492,thumbout,closedhand,150843,176338,0 2
+e02_p03,Photo on 2026-08-11 at 13.21 #2.jpg,E02,fold0,2238,1492,openhand,thumbout,356917,171970,1 0
+e02_p04,Photo on 2026-08-11 at 13.22.jpg,E02,fold0,2238,1492,closedhand,thumbout,105261,129273,2 0
+e02_p05,Photo on 2026-08-11 at 13.22 #2.jpg,E02,fold0,2238,1492,openhand,closedhand,404711,177695,1 2
+e02_p06,Photo on 2026-08-11 at 13.24.jpg,E02,fold0,2238,1492,closedhand,openhand,160392,297196,2 1
+e03_p01,Photo on 2026-08-11 at 13.24 #2.jpg,E03,fold0,2238,1492,thumbout,closedhand,81651,121159,0 2
+e03_p02,Photo on 2026-08-11 at 13.24 #3.jpg,E03,fold0,2238,1492,openhand,thumbout,324267,194604,1 0
+e03_p03,Photo on 2026-08-11 at 13.25.jpg,E03,fold0,2238,1492,thumbout,openhand,80367,288914,0 1
+e03_p04,Photo on 2026-08-11 at 13.25 #2.jpg,E03,fold0,2238,1492,thumbout,thumbout,110813,166138,0 0
+e03_p05,Photo on 2026-08-11 at 13.25 #4.jpg,E03,fold0,2238,1492,openhand,closedhand,246088,133559,1 2
+e03_p06,Photo on 2026-08-11 at 13.26.jpg,E03,fold0,2238,1492,closedhand,closedhand,86889,84782,2 2
+e04_p01,Photo on 2026-08-11 at 18.39.jpg,E04,fold1,2238,1492,closedhand,closedhand,122460,112812,2 2
+e04_p02,Photo on 2026-08-11 at 13.27 #2.jpg,E04,fold1,2238,1492,openhand,openhand,174697,240445,1 1
+e04_p03,Photo on 2026-08-11 at 13.28 #2.jpg,E04,fold1,2238,1492,closedhand,openhand,104139,184248,2 1
+e05_p01,Photo on 2026-08-11 at 13.28 #3.jpg,E05,fold1,2238,1492,thumbout,closedhand,59338,87340,0 2
+e05_p02,Photo on 2026-08-11 at 13.29.jpg,E05,fold1,2238,1492,openhand,thumbout,193451,106875,1 0
+e05_p03,Photo on 2026-08-11 at 13.29 #2.jpg,E05,fold1,2238,1492,thumbout,openhand,66632,183539,0 1
+e05_p04,Photo on 2026-08-11 at 13.29 #3.jpg,E05,fold1,2238,1492,closedhand,thumbout,81257,112639,2 0
+e05_p05,Photo on 2026-08-11 at 13.30.jpg,E05,fold1,2238,1492,openhand,closedhand,244027,107389,1 2
+e05_p06,Photo on 2026-08-11 at 13.31.jpg,E05,fold1,2238,1492,closedhand,openhand,86348,153265,2 1
+e06_p01,Photo on 2026-08-11 at 13.32.jpg,E06,fold1,2238,1492,thumbout,closedhand,71768,104340,0 2
+e06_p02,Photo on 2026-08-11 at 13.32 #2.jpg,E06,fold1,2238,1492,openhand,thumbout,153661,145722,1 0
+e06_p03,Photo on 2026-08-11 at 13.32 #3.jpg,E06,fold1,2238,1492,thumbout,openhand,110335,223018,0 1
+e06_p04,Photo on 2026-08-11 at 13.32 #4.jpg,E06,fold1,2238,1492,closedhand,thumbout,66933,93506,2 0
+e06_p05,Photo on 2026-08-11 at 13.32 #5.jpg,E06,fold1,2238,1492,openhand,closedhand,211658,94294,1 2
+e06_p06,Photo on 2026-08-11 at 13.36.jpg,E06,fold1,2238,1492,thumbout,thumbout,74444,95740,0 0
+e07_p01,Photo on 2026-08-11 at 13.36 #2.jpg,E07,fold2,2238,1492,openhand,openhand,193298,239518,1 1
+e07_p02,Photo on 2026-08-11 at 13.36 #3.jpg,E07,fold2,2238,1492,closedhand,closedhand,61686,106489,2 2
+e07_p03,Photo on 2026-08-11 at 18.43.jpg,E07,fold2,2238,1492,thumbout,thumbout,41317,42717,0 0
+e08_p01,Photo on 2026-08-11 at 13.37 #3.jpg,E08,fold2,2238,1492,thumbout,closedhand,31435,40805,0 2
+e08_p02,Photo on 2026-08-11 at 13.38.jpg,E08,fold2,2238,1492,openhand,thumbout,87165,47011,1 0
+e08_p03,Photo on 2026-08-11 at 13.38 #2.jpg,E08,fold2,2238,1492,thumbout,openhand,35108,93471,0 1
+e08_p04,Photo on 2026-08-11 at 13.38 #3.jpg,E08,fold2,2238,1492,closedhand,thumbout,41605,51501,2 0
+e08_p05,Photo on 2026-08-11 at 13.38 #4.jpg,E08,fold2,2238,1492,openhand,closedhand,79472,35603,1 2
+e08_p06,Photo on 2026-08-11 at 13.39.jpg,E08,fold2,2238,1492,closedhand,openhand,75403,173202,2 1
+e09_p01,Photo on 2026-08-11 at 13.39 #2.jpg,E09,fold2,2238,1492,closedhand,openhand,74748,172513,2 1
+e09_p02,Photo on 2026-08-11 at 13.39 #3.jpg,E09,fold2,2238,1492,thumbout,closedhand,76569,97413,0 2
+e09_p03,Photo on 2026-08-11 at 13.40.jpg,E09,fold2,2238,1492,openhand,thumbout,131856,92239,1 0
+e09_p04,Photo on 2026-08-11 at 13.40 #2.jpg,E09,fold2,2238,1492,thumbout,openhand,49224,176232,0 1
+e09_p05,Photo on 2026-08-11 at 13.40 #3.jpg,E09,fold2,2238,1492,closedhand,thumbout,67966,107271,2 0
+e09_p06,Photo on 2026-08-11 at 13.40 #4.jpg,E09,fold2,2238,1492,openhand,closedhand,170712,92496,1 2
+e10_p01,Photo on 2026-08-11 at 13.42.jpg,E10,test,2238,1492,openhand,openhand,91684,95177,1 1
+e10_p02,Photo on 2026-08-11 at 18.27.jpg,E10,test,2238,1492,closedhand,closedhand,137976,138339,2 2
+e10_p03,Photo on 2026-08-11 at 13.42 #3.jpg,E10,test,2238,1492,closedhand,closedhand,65417,94267,2 2
+e11_p01,Photo on 2026-08-11 at 13.43.jpg,E11,test,2238,1492,closedhand,openhand,38254,91900,2 1
+e11_p02,Photo on 2026-08-11 at 13.43 #2.jpg,E11,test,2238,1492,thumbout,closedhand,38794,44089,0 2
+e11_p03,Photo on 2026-08-11 at 13.43 #3.jpg,E11,test,2238,1492,openhand,thumbout,77054,51328,1 0
+e11_p04,Photo on 2026-08-11 at 13.45.jpg,E11,test,2238,1492,thumbout,openhand,40407,99845,0 1
+e11_p05,Photo on 2026-08-11 at 13.45 #2.jpg,E11,test,2238,1492,thumbout,thumbout,44936,70031,0 0
+e11_p06,Photo on 2026-08-11 at 13.45 #3.jpg,E11,test,2238,1492,openhand,closedhand,97559,48232,1 2
+e12_p01,Photo on 2026-08-11 at 13.46.jpg,E12,test,2238,1492,thumbout,openhand,50965,143238,0 1
+e12_p02,Photo on 2026-08-11 at 13.46 #2.jpg,E12,test,2238,1492,thumbout,closedhand,69584,81169,0 2
+e12_p03,Photo on 2026-08-11 at 13.47.jpg,E12,test,2238,1492,openhand,thumbout,126358,86262,1 0
+e12_p04,Photo on 2026-08-11 at 13.47 #2.jpg,E12,test,2238,1492,thumbout,openhand,70585,151794,0 1
+e12_p05,Photo on 2026-08-11 at 13.47 #3.jpg,E12,test,2238,1492,closedhand,thumbout,55663,68677,2 0
+e12_p06,Photo on 2026-08-11 at 13.47 #4.jpg,E12,test,2238,1492,openhand,closedhand,187522,84297,1 2

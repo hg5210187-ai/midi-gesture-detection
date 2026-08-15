@@ -1,0 +1,78 @@
+# ---------------------------------------------------------------------------
+# Large binaries live in Google Cloud Storage, not here. See README §Artifacts.
+# GitHub rejects files over 100 MB and degrades badly past ~1 GB of history, and
+# once a big file is committed it stays in the history even after deletion.
+# ---------------------------------------------------------------------------
+midi_results/weights/
+deim_results/weights/
+DEIMv2checkpoints/
+models/
+*.pt
+*.pth
+*.mlpackage/
+*.mlmodel
+*.onnx
+
+# Environments and third-party source
+.venv*/
+venv/
+__pycache__/
+*.pyc
+# upstream DEIMv2 clone; pinned by commit in the README instead
+# (note: gitignore has no trailing comments -- they become part of the pattern)
+deim_local/
+
+# Upload staging / archives — regenerable
+kaggle/upload/
+vast/
+*.tar.gz
+*.zip
+
+# Machine-local caches
+*.cache
+.DS_Store
+.ipynb_checkpoints/
+
+# ---------------------------------------------------------------------------
+# PERSONAL DATA — photographs of a person's hands.
+# Excluded by default. Publishing images of an identifiable person is a decision
+# the subject makes deliberately, not one a .gitignore should make silently.
+# To publish them, delete these lines AND add a LICENSE/consent note saying so.
+# ---------------------------------------------------------------------------
+photov2/
+photov2_annotate/
+addedphoto/
+needs_fixing/
+qa_overlays/
+overlays/
+photos/
+masks/
+data/pool/hbb/images/
+data/pool/obb/images/
+deim_data/
+
+# The source photographs show the subject's FACE, not only their hands: they are
+# webcam-style frames with the person and their home interior in shot. Treat every
+# image derived from them as identifiable personal data.
+# Belt and braces -- catch stray debug montages and overlays wherever they sit:
+_label_check.jpg
+*_overlay*.jpg
+*_qa*.jpg
+**/photo*/**
+*.JPG
+*.jpeg
+*.HEIC
+
+# ---------------------------------------------------------------------------
+# Regenerated at runtime, and full of absolute local paths.
+# train_yolo.py rebuilds the split manifests from folds.json on whatever machine
+# it runs on, precisely because a stale manifest makes ultralytics report
+# "0 images found" and train on nothing without raising. Shipping them would be
+# actively harmful as well as leaking a home directory into a public repo.
+# ---------------------------------------------------------------------------
+data/splits/fold*/
+data/splits/hbb/
+data/splits/obb/
+data/splits/*.txt
+data/yolo/
+deim_configs/

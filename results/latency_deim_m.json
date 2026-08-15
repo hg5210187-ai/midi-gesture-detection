@@ -1,0 +1,13 @@
+{
+  "host": "macOS-15.5-arm64-arm-64bit-Mach-O",
+  "results": [],
+  "failed": [
+    {
+      "tag": "deimv2-m-640",
+      "error": "RuntimeError: Core ML output disagrees with PyTorch: {'compared': 2, 'label_match': '2/2', 'max_box_dev_px': 259.763, 'max_score_dev': 0.55433, 'ok': False}. Refusing to report latency for a graph that does not reproduce the model."
+    }
+  ],
+  "budget_ms": 10.0,
+  "iters": 60,
+  "note": "Core ML, compute_units=ALL (Neural Engine eligible), fp16. Timed on mlmodel.predict()."
+}

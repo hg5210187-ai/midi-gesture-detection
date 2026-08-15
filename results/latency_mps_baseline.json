@@ -1,0 +1,150 @@
+{
+  "host": {
+    "chip": "Apple M4",
+    "model": "Mac16,12",
+    "ncpu": "10",
+    "os": "macOS-15.5-arm64-arm-64bit-Mach-O",
+    "python": "3.13.14",
+    "torch": "2.11.0"
+  },
+  "frame": "data/pool/hbb/images/e07_p01.jpg",
+  "iters": 60,
+  "repeats": 2,
+  "order_seed": 7,
+  "thermal_before": "Note: No CPU power status has been recorded",
+  "results": [
+    {
+      "weights": "hbb-n-fold0-640",
+      "imgsz": 416,
+      "runtime": "pytorch-mps",
+      "n": 120,
+      "median_ms": 18.82,
+      "p90_ms": 22.96,
+      "p95_ms": 23.31,
+      "p99_ms": 23.66,
+      "min_ms": 13.01,
+      "iqr_ms": 8.12,
+      "jitter_ms": 4.49,
+      "fps_at_median": 53.1,
+      "tier": "B",
+      "meets_budget": false,
+      "jitter_ok": true
+    },
+    {
+      "weights": "hbb-n-fold0-640",
+      "imgsz": 320,
+      "runtime": "pytorch-mps",
+      "n": 120,
+      "median_ms": 20.14,
+      "p90_ms": 21.3,
+      "p95_ms": 21.64,
+      "p99_ms": 22.27,
+      "min_ms": 18.48,
+      "iqr_ms": 0.95,
+      "jitter_ms": 1.51,
+      "fps_at_median": 49.7,
+      "tier": "B",
+      "meets_budget": false,
+      "jitter_ok": true
+    },
+    {
+      "weights": "hbb-n-fold0-640",
+      "imgsz": 640,
+      "runtime": "pytorch-mps",
+      "n": 120,
+      "median_ms": 21.24,
+      "p90_ms": 31.21,
+      "p95_ms": 32.62,
+      "p99_ms": 34.13,
+      "min_ms": 16.45,
+      "iqr_ms": 8.9,
+      "jitter_ms": 11.38,
+      "fps_at_median": 47.1,
+      "tier": "B",
+      "meets_budget": false,
+      "jitter_ok": false
+    },
+    {
+      "weights": "obb-s-fold0-640",
+      "imgsz": 320,
+      "runtime": "pytorch-mps",
+      "n": 120,
+      "median_ms": 24.83,
+      "p90_ms": 29.95,
+      "p95_ms": 31.52,
+      "p99_ms": 34.03,
+      "min_ms": 16.6,
+      "iqr_ms": 9.55,
+      "jitter_ms": 6.69,
+      "fps_at_median": 40.3,
+      "tier": "B",
+      "meets_budget": false,
+      "jitter_ok": true
+    },
+    {
+      "weights": "obb-s-fold0-640",
+      "imgsz": 640,
+      "runtime": "pytorch-mps",
+      "n": 120,
+      "median_ms": 26.7,
+      "p90_ms": 32.44,
+      "p95_ms": 34.21,
+      "p99_ms": 35.07,
+      "min_ms": 23.12,
+      "iqr_ms": 2.99,
+      "jitter_ms": 7.51,
+      "fps_at_median": 37.5,
+      "tier": "B",
+      "meets_budget": false,
+      "jitter_ok": true
+    },
+    {
+      "weights": "obb-s-fold0-640",
+      "imgsz": 416,
+      "runtime": "pytorch-mps",
+      "n": 120,
+      "median_ms": 29.44,
+      "p90_ms": 35.55,
+      "p95_ms": 36.67,
+      "p99_ms": 37.68,
+      "min_ms": 18.58,
+      "iqr_ms": 8.51,
+      "jitter_ms": 7.23,
+      "fps_at_median": 34.0,
+      "tier": "B",
+      "meets_budget": false,
+      "jitter_ok": true
+    }
+  ],
+  "budget_ms": 10.0,
+  "max_jitter_ms": 10.0,
+  "tiers": [
+    {
+      "tier": "A",
+      "max_ms": 16.0,
+      "meaning": "hard real-time, keeps up with 60 fps"
+    },
+    {
+      "tier": "B",
+      "max_ms": 33.0,
+      "meaning": "one frame at 30 fps"
+    },
+    {
+      "tier": "C",
+      "max_ms": 100.0,
+      "meaning": "interactive, drops frames"
+    },
+    {
+      "tier": "D",
+      "max_ms": 150.0,
+      "meaning": "audibly late"
+    },
+    {
+      "tier": "E",
+      "max_ms": Infinity,
+      "meaning": "not a musical controller"
+    }
+  ],
+  "timed_window": "end-to-end model.predict(), torch.mps.synchronize() both sides",
+  "note": "The model is one term in a chain. Camera exposure, readout and USB transport cost 30-50 ms on this machine and are not reducible, so a 10 ms model budget is an engineering target rather than a perceptual threshold."
+}

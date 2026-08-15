@@ -1,0 +1,168 @@
+{
+  "host": {
+    "chip": "Apple M4",
+    "model": "Mac16,12",
+    "ncpu": "10",
+    "os": "macOS-15.5-arm64-arm-64bit-Mach-O"
+  },
+  "frame": "data/pool/hbb/images/e07_p01.jpg",
+  "budget_ms": 10.0,
+  "timed_window": "end-to-end ultralytics predict() on the .mlpackage, same path as the burst benchmark in export_coreml.py",
+  "thermal_telemetry": "unavailable without root (pmset -g therm reports nothing on this machine, powermetrics needs sudo); latency over time is reported instead, which is the effect rather than a proxy for it",
+  "note": "The MacBook Air is fanless, so sustained load is the regime a real instrument runs in. Burst figures from export_coreml.py describe a cold machine.",
+  "results": [
+    {
+      "package": "obb-s_320.mlpackage",
+      "imgsz": 320,
+      "minutes": 15.0,
+      "iterations": 106807,
+      "overall_median_ms": 8.29,
+      "overall_p95_ms": 9.79,
+      "first_window_median_ms": 7.73,
+      "last_window_median_ms": 8.53,
+      "drift_ms": 0.8,
+      "drift_pct": 10.3,
+      "windows": [
+        {
+          "window": 1,
+          "t_start_s": 0.0,
+          "t_end_s": 60.0,
+          "n": 7651,
+          "median_ms": 7.73,
+          "p95_ms": 8.51,
+          "max_ms": 27.67
+        },
+        {
+          "window": 2,
+          "t_start_s": 60.0,
+          "t_end_s": 120.0,
+          "n": 7597,
+          "median_ms": 7.79,
+          "p95_ms": 8.54,
+          "max_ms": 27.68
+        },
+        {
+          "window": 3,
+          "t_start_s": 120.0,
+          "t_end_s": 180.0,
+          "n": 7570,
+          "median_ms": 7.8,
+          "p95_ms": 8.63,
+          "max_ms": 21.69
+        },
+        {
+          "window": 4,
+          "t_start_s": 180.0,
+          "t_end_s": 240.0,
+          "n": 7651,
+          "median_ms": 7.72,
+          "p95_ms": 8.5,
+          "max_ms": 20.37
+        },
+        {
+          "window": 5,
+          "t_start_s": 240.0,
+          "t_end_s": 300.0,
+          "n": 7719,
+          "median_ms": 7.67,
+          "p95_ms": 8.44,
+          "max_ms": 20.14
+        },
+        {
+          "window": 6,
+          "t_start_s": 300.0,
+          "t_end_s": 360.0,
+          "n": 7114,
+          "median_ms": 8.2,
+          "p95_ms": 10.2,
+          "max_ms": 27.18
+        },
+        {
+          "window": 7,
+          "t_start_s": 360.0,
+          "t_end_s": 420.0,
+          "n": 6723,
+          "median_ms": 8.61,
+          "p95_ms": 10.96,
+          "max_ms": 22.82
+        },
+        {
+          "window": 8,
+          "t_start_s": 420.0,
+          "t_end_s": 480.0,
+          "n": 6626,
+          "median_ms": 8.72,
+          "p95_ms": 11.44,
+          "max_ms": 22.83
+        },
+        {
+          "window": 9,
+          "t_start_s": 480.0,
+          "t_end_s": 540.0,
+          "n": 6915,
+          "median_ms": 8.51,
+          "p95_ms": 9.88,
+          "max_ms": 25.41
+        },
+        {
+          "window": 10,
+          "t_start_s": 540.0,
+          "t_end_s": 600.0,
+          "n": 6607,
+          "median_ms": 8.83,
+          "p95_ms": 10.69,
+          "max_ms": 40.98
+        },
+        {
+          "window": 11,
+          "t_start_s": 600.0,
+          "t_end_s": 660.0,
+          "n": 6951,
+          "median_ms": 8.56,
+          "p95_ms": 9.43,
+          "max_ms": 15.19
+        },
+        {
+          "window": 12,
+          "t_start_s": 660.0,
+          "t_end_s": 720.0,
+          "n": 6549,
+          "median_ms": 8.69,
+          "p95_ms": 11.87,
+          "max_ms": 62.92
+        },
+        {
+          "window": 13,
+          "t_start_s": 720.0,
+          "t_end_s": 780.0,
+          "n": 7051,
+          "median_ms": 8.44,
+          "p95_ms": 9.2,
+          "max_ms": 11.38
+        },
+        {
+          "window": 14,
+          "t_start_s": 780.0,
+          "t_end_s": 840.0,
+          "n": 7092,
+          "median_ms": 8.39,
+          "p95_ms": 9.12,
+          "max_ms": 10.45
+        },
+        {
+          "window": 15,
+          "t_start_s": 840.0,
+          "t_end_s": 900.0,
+          "n": 6991,
+          "median_ms": 8.53,
+          "p95_ms": 9.3,
+          "max_ms": 12.38
+        }
+      ],
+      "budget_ms": 10.0,
+      "holds_budget_throughout": true,
+      "first_breach_window": null,
+      "first_breach_at_s": null
+    }
+  ]
+}

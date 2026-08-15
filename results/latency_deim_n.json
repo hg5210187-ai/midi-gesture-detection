@@ -1,0 +1,46 @@
+{
+  "host": "macOS-15.5-arm64-arm-64bit-Mach-O",
+  "results": [
+    {
+      "n": 100,
+      "median_ms": 13.85,
+      "p95_ms": 15.51,
+      "min_ms": 5.46,
+      "jitter_ms": 1.66,
+      "fps_at_median": 72.2,
+      "meets_budget": false,
+      "arch": "deimv2",
+      "model": "n",
+      "imgsz": 640,
+      "runtime": "coreml",
+      "checkpoint": "n_fold0__stg2.pth",
+      "verify": {
+        "compared": 3,
+        "label_match": "3/3",
+        "max_box_dev_px": 0.568,
+        "max_score_dev": 0.00165,
+        "ok": true
+      },
+      "conversion": {
+        "target": "macOS15",
+        "precision": "FLOAT16",
+        "ane_eligible": true,
+        "fallbacks_tried": []
+      },
+      "package_mb": 7.5
+    }
+  ],
+  "failed": [
+    {
+      "tag": "deimv2-n-320",
+      "error": "RuntimeError: The size of tensor a (100) must match the size of tensor b (400) at non-singleton dimension 1"
+    },
+    {
+      "tag": "deimv2-n-416",
+      "error": "RuntimeError: The size of tensor a (169) must match the size of tensor b (400) at non-singleton dimension 1"
+    }
+  ],
+  "budget_ms": 10.0,
+  "iters": 100,
+  "note": "Core ML, compute_units=ALL (Neural Engine eligible), fp16. Timed on mlmodel.predict()."
+}
