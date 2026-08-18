@@ -9,6 +9,9 @@ MacBook Air M4 for 15 continuous minutes without breaching a 10 ms budget, at
 📄 **[REPORT.md](REPORT.md)** — the full study: planning, method, results, figures, and the
 reasoning behind each decision, including the ones that turned out to be wrong.
 
+📷 **[DATA_COLLECTION.md](DATA_COLLECTION.md)** — how to collect an equivalent dataset. The
+images are not distributed (they show an identifiable person), so this is the recipe.
+
 ---
 
 ## What this is
@@ -47,6 +50,7 @@ Three findings that generalise beyond this instrument:
 
 ```
 REPORT.md                  the study, end to end
+DATA_COLLECTION.md         how to collect an equivalent dataset
 STATUS.md                  operational record: environment, versions, resume notes
 results/RESULTS.md         results, condensed
 results/METRICS.md         confusion-matrix and AUC methodology
@@ -110,7 +114,14 @@ excluded from this repository by `.gitignore`.
 
 Everything needed to reproduce the *analysis* is here — prediction dumps, fold assignments,
 per-model metrics — so every number in the report can be recomputed without the images.
-Re-training from scratch requires the images, which are not publicly distributed.
+
+Re-training from scratch requires images, which are not distributed.
+**[DATA_COLLECTION.md](DATA_COLLECTION.md) is the protocol for collecting an equivalent
+dataset**: the 12-place
+structure, the gesture triplets that make the folds balance exactly, lighting and framing
+specifications, mask conventions, the QA pass, and the mistakes that cost time the first
+time. It does not require the same person or the same rooms — those are the parts worth
+varying.
 
 **Single-subject dataset.** Every limitation in this study traces back to that: the models
 have seen one person's hands, in 12 places, on one day. The accuracy figures should be read
