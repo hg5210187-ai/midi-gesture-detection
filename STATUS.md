@@ -70,6 +70,30 @@ deleted.
 
 ## 3. YOLO26 arm — COMPLETE, 90/90 cells
 
+### Hyperparameters actually used
+
+Recovered from the checkpoints (`TRAINING_CONFIG.md` has the full derivation):
+
+| | |
+|---|---|
+| epochs | **100** (early stopping off: `patience` = `epochs`) |
+| batch | **8** nominal, **64 effective** (accumulation to `nbs=64`) |
+| optimizer | **AdamW** |
+| lr0 | **0.001429**, linear decay to ×0.01 |
+| momentum | **0.9**, weight decay 0.0005 |
+| seed | 42, deterministic, AMP on |
+| ultralytics | 8.4.45 |
+
+**The checkpoints record `optimizer: auto, lr0: 0.01, momentum: 0.937` and those last two
+were NOT used.** Auto mode overrides them: with `nc=3` it resolves to AdamW at
+`round(0.002*5/(4+3), 6) = 0.001429`, momentum 0.9. Quoting the recorded `lr0` in a paper
+would be wrong by 7× and would name the wrong optimizer.
+
+Four runs (`hbb-s-fold2-416`, `hbb-x-fold0-416`, `hbb-x-fold1-416`, `obb-x-fold2-416`) were
+auto-reduced to batch 4 after CUDA OOM during the parallel sweep. Effective batch, weight
+decay, optimizer and LR are unchanged by that; only batch-norm statistics differ.
+
+
 `midi_results/results.jsonl` — 90 rows, 0 errors. `midi_results/weights/` — 90 `.pt` files,
 4.5 GB, verified against the expected name set (5 sizes × 2 geometries × 3 folds × 3
 resolutions). 640 px trained on Kaggle; 320/416 on a rented RTX 4090.

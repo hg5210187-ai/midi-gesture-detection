@@ -12,6 +12,10 @@ reasoning behind each decision, including the ones that turned out to be wrong.
 📷 **[DATA_COLLECTION.md](DATA_COLLECTION.md)** — how to collect an equivalent dataset. The
 images are not distributed (they show an identifiable person), so this is the recipe.
 
+⚙️ **[TRAINING_CONFIG.md](TRAINING_CONFIG.md)** — the hyperparameters actually used, read back
+out of the 90 checkpoints. Note that `optimizer=auto` means the recorded `lr0` is *not* the
+learning rate that ran.
+
 ---
 
 ## What this is
@@ -51,6 +55,7 @@ Three findings that generalise beyond this instrument:
 ```
 REPORT.md                  the study, end to end
 DATA_COLLECTION.md         how to collect an equivalent dataset
+TRAINING_CONFIG.md         hyperparameters as actually used, recovered from checkpoints
 STATUS.md                  operational record: environment, versions, resume notes
 results/RESULTS.md         results, condensed
 results/METRICS.md         confusion-matrix and AUC methodology
