@@ -13,6 +13,22 @@ the same country — those are the parts worth varying.
 
 ---
 
+## The chart
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="figures/shooting_chart_dark.png">
+  <img alt="Photo shooting plan: 12 places by 3 groups plus a held-out test set, 60 photographs, each showing which gesture goes on which hand at which wrist rotation" src="figures/shooting_chart_light.png">
+</picture>
+
+**One row per place, one cell per photo.** Each cell is split `left hand │ right hand` and
+lettered **T** / **O** / **C**, so it stays readable in greyscale, in print, and for
+colour-blind users — the colour is secondary encoding, never the only cue.
+
+Print it, or keep it open on a phone while shooting. Regenerate with
+`python3 scripts/shooting_chart.py` if you change the plan.
+
+---
+
 ## 1. What you are collecting
 
 60 photographs. **Both hands visible in every frame**, each hand making one of three gestures:

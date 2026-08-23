@@ -9,8 +9,10 @@ MacBook Air M4 for 15 continuous minutes without breaching a 10 ms budget, at
 📄 **[REPORT.md](REPORT.md)** — the full study: planning, method, results, figures, and the
 reasoning behind each decision, including the ones that turned out to be wrong.
 
-📷 **[DATA_COLLECTION.md](DATA_COLLECTION.md)** — how to collect an equivalent dataset. The
-images are not distributed (they show an identifiable person), so this is the recipe.
+📷 **[DATA_COLLECTION.md](DATA_COLLECTION.md)** — how to collect an equivalent dataset,
+including the [**shooting chart**](figures/shooting_chart_light.png): all 60 photographs, which
+gesture on which hand, at which rotation, in one page. The images are not distributed (they
+show an identifiable person), so this is the recipe.
 
 ⚙️ **[TRAINING_CONFIG.md](TRAINING_CONFIG.md)** — the hyperparameters actually used, read back
 out of the 90 checkpoints. Note that `optimizer=auto` means the recorded `lr0` is *not* the
@@ -65,7 +67,8 @@ scripts/                   dataset construction, evaluation, latency, figures
 kaggle/                    training drivers (YOLO26 and DEIMv2)
 data/splits/               fold assignment
 collection/                the shot list the photos were taken from
-figures/                   38 confusion matrices, 38 ROC curves, publication figures
+figures/                   38 confusion matrices, 38 ROC curves, publication figures,
+                           shooting_chart_{light,dark}.png
 results/                   per-model JSON: matrices, AUC, threshold sweeps, test scores
 ```
 
