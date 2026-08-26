@@ -50,7 +50,10 @@ Three findings that generalise beyond this instrument:
    6.3 ms across resolutions, monotonically. Measuring MPS would have led to abandoning the
    axis that made the result possible.
 3. **Burst latency is the wrong benchmark for a continuously-running instrument on passively
-   cooled hardware.** Four configurations pass a burst test and fail under sustained load.
+   cooled hardware.** Four YOLO26 configurations pass a burst test and fail under sustained
+   load — and DEIMv2-n goes from **4.84 ms cold to ~15 ms after 20–30 seconds** of continuous
+   inference. Reporting burst figures only, which is the usual practice, would have
+   recommended a model 50% over budget.
 
 ## Repository layout
 

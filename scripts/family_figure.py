@@ -82,14 +82,28 @@ def accuracy():
 
 
 def latency():
-    """Core ML medians. YOLO: every cell. DEIMv2: only what verified numerically."""
+    """Core ML medians. YOLO: every cell. DEIMv2: only what verified numerically.
+
+    SUSTAINED WINS OVER BURST wherever a 15-minute run exists, for both families. For DEIMv2
+    that is not a detail: deimv2-n measures 4.84 ms cold and ~15 ms after roughly 20-30 s of
+    continuous inference, and it does not recover while the load continues. Plotting its burst
+    figure would put it inside the 10 ms budget when in use it is nowhere near.
+    """
     yolo = json.loads((ROOT / "results/tradeoff.json").read_text())["points"]
+    sus = {}
+    for f in glob.glob(str(ROOT / "results/latency_sustained_deimv2*.json")):
+        for r in json.loads(Path(f).read_text())["results"]:
+            v = r["package"].replace(".mlpackage", "").split("-")[1]
+            sus[v] = r["overall_median_ms"]
     deim, seen = [], set()
     for f in sorted(glob.glob(str(ROOT / "results/latency_deim*.json"))):
         for r in json.loads(Path(f).read_text()).get("results", []):
             if r.get("verify", {}).get("ok") and r["model"] not in seen:
                 seen.add(r["model"])
-                deim.append({"model": r["model"], "ms": r["median_ms"], "imgsz": r["imgsz"]})
+                deim.append({"model": r["model"], "imgsz": r["imgsz"],
+                             "ms": sus.get(r["model"], r["median_ms"]),
+                             "burst_ms": r["median_ms"],
+                             "sustained": r["model"] in sus})
     return yolo, deim
 
 
@@ -165,6 +179,15 @@ def render(mode: str, out: Path):
                      label="DEIMv2 — the 1 variant that converts correctly")
         axB.annotate(f"deimv2-{r['model']}", (r["ms"], m[0]), textcoords="offset points",
                      xytext=(0, 15), ha="center", fontsize=8.5, color=t["ink3"])
+        if r.get("sustained") and r.get("burst_ms"):
+            # the burst figure, and an arrow to where sustained load actually puts it
+            axB.annotate("", xy=(r["ms"] - 0.5, m[0]), xytext=(r["burst_ms"] + 0.4, m[0]),
+                         arrowprops=dict(arrowstyle="->", color=cd, lw=1.1, alpha=0.55))
+            axB.scatter([r["burst_ms"]], [m[0]], s=46, facecolor="none", edgecolor=cd,
+                        linewidth=1.5, zorder=3)
+            axB.annotate(f"cold burst\n{r['burst_ms']:.1f} ms", (r["burst_ms"], m[0]),
+                         textcoords="offset points", xytext=(0, -30), ha="center",
+                         fontsize=7.8, color=t["ink3"])
     axB.set_xlabel("Core ML latency on MacBook Air M4 — median ms", fontsize=10, color=t["ink2"])
     axB.set_ylabel("mAP50-95   (3-fold CV, exact IoU)", fontsize=10, color=t["ink2"])
     axB.set_title("B · Accuracy vs measured latency", fontsize=11.5,

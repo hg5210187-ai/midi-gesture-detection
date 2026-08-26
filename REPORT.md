@@ -543,15 +543,40 @@ and then produce boxes 213–277 px wrong, so reporting a latency for them would
 the speed of a model that does not work; three sit below the capacity floor. Only `n`
 converts and reproduces PyTorch exactly (0.568 px box deviation).
 
-That single point is striking on its own terms: **deimv2-n runs at 4.8 ms and
-scores 0.792**, which is faster *and* more accurate than any YOLO26 configuration at
-640 px. A plausible explanation is that DEIMv2 is **NMS-free** while the YOLO Core ML export
-bakes in non-maximum suppression, which the Neural Engine handles poorly.
+That single point looked, at first, like it overturned the study: **deimv2-n measures
+4.84 ms in a burst** — faster than any YOLO26 configuration — while scoring 0.792 on
+cross-validation and **0.743 on the held-out test set, well above the deployed model's 0.686**.
 
-**The honest reading of Panel B is that DEIMv2's deployability is unresolved, not proven.**
-One working export out of eight is not a basis for recommending the family, however good that
-one point looks. YOLO26 is recommended because all 30 of its configurations export correctly
-and were measured — reliability of the toolchain, not superiority of the architecture.
+**It does not survive sustained load.** Measured continuously for 15 minutes it runs at
+**14.95 ms**, flat, and the collapse is fast:
+
+| | median |
+|---|---|
+| cold burst, 100 iterations | 4.84 ms |
+| immediately repeated | 4.88 ms |
+| 20 s of continuous inference | 6.47 ms |
+| burst *straight after* that 20 s | **15.95 ms** |
+| 15-minute sustained run | **14.95 ms** (60,573 iterations) |
+
+Roughly 20–30 seconds of continuous work takes it from 4.8 ms to ~15 ms, and it stays there
+while the load continues. The arrow in Panel B marks that fall.
+
+This is the same effect §6 documents for YOLO26 — but an order of magnitude larger. YOLO's
+burst-to-sustained penalty is +0.5 to +2.1 ms and arrives after 5–9 minutes; DEIMv2-n's is
+**+10 ms and arrives in under a minute**. A 640 px DETR appears to saturate the Neural Engine's
+sustainable power budget in a way the small convolutional detectors do not.
+
+The methodological point is worth more than the number: had this study reported burst latency
+only — the default for almost every published benchmark — it would have recommended a model
+that is **50% over budget** in the regime it was built for.
+
+**So the deployment recommendation stands, and for a second independent reason.** DEIMv2-n
+generalises better than the deployed model on the held-out test set (0.743 vs 0.686) and would
+be the stronger choice on accuracy alone — but at ~15 ms sustained it is 50% over the latency
+budget, and it cannot trade resolution for speed because the architecture is fixed at 640 px.
+Beyond that, one working Core ML export out of eight variants is not a basis for recommending
+a family. YOLO26 is recommended for sustained latency and toolchain reliability, not for
+superior accuracy.
 
 ---
 
