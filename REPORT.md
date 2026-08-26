@@ -510,6 +510,51 @@ The dotted line traces the Pareto front inside the budget: `hbb-n@320` at 7.22 m
 
 ---
 
+### Figure 6 — YOLO26 vs DEIMv2
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="figures/family_comparison_dark.png">
+  <img alt="Two panels comparing YOLO26 and DEIMv2: accuracy against parameter count, and accuracy against measured Core ML latency" src="figures/family_comparison_light.png">
+</picture>
+
+*Vector version: `figures/family_comparison_light.pdf`*
+
+Figure 5 compares HBB against OBB and the three resolutions, all **within** YOLO26. This one
+compares the two **families**, which is a different question with a different evidence base:
+accuracy is fully measurable for both, latency is not.
+
+**Panel A — accuracy vs capacity, both read at 640 px.** The match matters: DEIMv2 is
+architecturally fixed at 640 and cannot be run at another resolution, so 640 is the only
+common ground.
+
+Two things are visible. DEIMv2 has a **capacity floor** — atto (0.064), femto
+(0.131) and pico (0.085) do not learn the task at all, then `n`
+jumps to 0.792 for roughly twice the parameters. YOLO26 has no such cliff; its
+smallest variant already works. Above the floor **both families are flat**: DEIMv2 spans
+0.792–0.843 from n to x, YOLO26 spans
+0.716–0.808
+across a 24× parameter range. At 640 px DEIMv2 sits consistently **above** YOLO26 — but see
+the backbone caveat in §7, since its s/m/l/x line is DINOv3-pretrained.
+
+**Panel B — accuracy vs latency measured on the M4.** YOLO26 contributes all 30
+configurations. DEIMv2 contributes **one point**, and that asymmetry is a result rather than
+an omission: of its eight variants, four (the DINOv3 line) convert to Core ML *without error*
+and then produce boxes 213–277 px wrong, so reporting a latency for them would be reporting
+the speed of a model that does not work; three sit below the capacity floor. Only `n`
+converts and reproduces PyTorch exactly (0.568 px box deviation).
+
+That single point is striking on its own terms: **deimv2-n runs at 4.8 ms and
+scores 0.792**, which is faster *and* more accurate than any YOLO26 configuration at
+640 px. A plausible explanation is that DEIMv2 is **NMS-free** while the YOLO Core ML export
+bakes in non-maximum suppression, which the Neural Engine handles poorly.
+
+**The honest reading of Panel B is that DEIMv2's deployability is unresolved, not proven.**
+One working export out of eight is not a basis for recommending the family, however good that
+one point looks. YOLO26 is recommended because all 30 of its configurations export correctly
+and were measured — reliability of the toolchain, not superiority of the architecture.
+
+---
+
 ## 9. The deployment choice
 
 Pareto front within the sustained-latency budget:

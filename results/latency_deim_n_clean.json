@@ -1,0 +1,37 @@
+{
+  "host": "macOS-15.5-arm64-arm-64bit-Mach-O",
+  "results": [
+    {
+      "n": 100,
+      "median_ms": 4.8,
+      "p95_ms": 7.03,
+      "min_ms": 4.43,
+      "jitter_ms": 2.23,
+      "fps_at_median": 208.1,
+      "meets_budget": true,
+      "arch": "deimv2",
+      "model": "n",
+      "imgsz": 640,
+      "runtime": "coreml",
+      "checkpoint": "n_fold0__stg2.pth",
+      "verify": {
+        "compared": 3,
+        "label_match": "3/3",
+        "max_box_dev_px": 0.568,
+        "max_score_dev": 0.00165,
+        "ok": true
+      },
+      "conversion": {
+        "target": "macOS15",
+        "precision": "FLOAT16",
+        "ane_eligible": true,
+        "fallbacks_tried": []
+      },
+      "package_mb": 7.5
+    }
+  ],
+  "failed": [],
+  "budget_ms": 10.0,
+  "iters": 100,
+  "note": "Core ML, compute_units=ALL (Neural Engine eligible), fp16. Timed on mlmodel.predict()."
+}
