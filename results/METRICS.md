@@ -54,25 +54,25 @@ Sorted by macro AUC. `miss` = ground-truth hands with no detection (background c
 
 ## The finding: one hard pair, and it is the anatomically adjacent one
 
-Summed 4×4 over the 15 working models (macro AUC ≥ 0.9):
+Summed 4×4 over the 35 working models (macro AUC ≥ 0.9):
 
 | ground truth ↓ / predicted → | thumbout | openhand | closedhand | background |
 |---|---|---|---|---|
-| **thumbout** | 318 | 0 | 48 | 84 |
-| **openhand** | 0 | 425 | 0 | 25 |
-| **closedhand** | 31 | 1 | 339 | 79 |
-| **background** | 42 | 48 | 39 | 0 |
+| **thumbout** | **784** | 2 | 87 | 177 |
+| **openhand** | 0 | **988** | 0 | 62 |
+| **closedhand** | 89 | 1 | **784** | 176 |
+| **background** | 124 | 114 | 82 | — |
 
-Per-class AUC across those 15 models:
+Per-class AUC across those 35 models:
 
 | class | mean AUC | worst model |
 |---|---|---|
-| thumbout | 0.9508 | 0.9061 |
-| openhand | 0.9985 | 0.9922 |
-| closedhand | 0.9509 | 0.8961 |
+| openhand | 0.9979 | 0.9650 |
+| thumbout | 0.9497 | 0.8533 |
+| closedhand | 0.9550 | 0.8906 |
 
-**79 of the 80 class confusions are thumbout ↔ closedhand. Exactly one ever involves
-openhand.** openhand is essentially perfectly separable (mean AUC 0.9985,
+**176 of the 179 class confusions (98.3%) are thumbout ↔ closedhand. Only 3 ever
+involve openhand.** openhand is essentially perfectly separable (mean AUC 0.9985,
 worst 0.9922); thumbout and closedhand sit at ~0.95 because they are
 confused with each other and almost nothing else.
 

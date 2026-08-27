@@ -340,9 +340,9 @@ cell (0.837).
 
 ### Error structure — one hard pair
 
-Pooled over the 15 models that learned the task:
+Pooled over the 35 models that learned the task (macro AUC ≥ 0.9):
 
-**79 of 80 class confusions are thumbout ↔ closedhand. Exactly one involves openhand.**
+**176 of 179 class confusions (98.3%) are thumbout ↔ closedhand. Only 3 involve openhand.**
 
 | class | mean AUC |
 |---|---|
@@ -464,7 +464,15 @@ which is threshold-free, ranks the two families differently from mAP.
 
 ### Figure 4 — aggregate error structure across all working models
 
-Summed 4×4 over the **35 models** that learned the task (macro AUC ≥ 0.9):
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="figures/aggregate_confusion_dark.png">
+  <img alt="Aggregate 4x4 confusion matrix summed over the 35 models that learned the task, showing that almost every class confusion is thumbout against closedhand" src="figures/aggregate_confusion_light.png">
+</picture>
+
+*Vector version: `figures/aggregate_confusion_light.pdf`*
+
+Summed 4×4 over the **35 models** that learned the task (macro AUC ≥ 0.9) — every model
+except the three DEIMv2 variants below the capacity floor, whose AUC sits at chance:
 
 | ground truth ↓ / predicted → | thumbout | openhand | closedhand | background |
 |---|---|---|---|---|
@@ -479,7 +487,7 @@ Summed 4×4 over the **35 models** that learned the task (macro AUC ≥ 0.9):
 | thumbout | 0.9497 | 0.8533 |
 | closedhand | 0.9550 | 0.8906 |
 
-**176 of 179 class confusions are thumbout ↔ closedhand. Exactly 3 involves openhand.**
+**176 of 179 class confusions (98.3%) are thumbout ↔ closedhand. Only 3 involve openhand.**
 
 This is the study's most robust finding: it holds across two architecture families, a 24×
 parameter range, three input resolutions and two box geometries. thumbout is a closed fist
@@ -487,6 +495,20 @@ with the thumb extended — one digit from closedhand — while openhand differs
 shape. The same pair produced the four annotation errors found during dataset construction,
 which is independent corroboration that the difficulty is intrinsic to the gesture vocabulary
 rather than an artifact of labelling.
+
+**Read the magnitude with care.** The 35 models are *not* independent trials — they are 35
+models scored on the *same* 90 annotations, so a hand that is intrinsically ambiguous is
+counted up to 35 times. The matrix establishes the **shape** of the error reliably; its counts
+mean "how often across configurations", not 3,150 independent observations. The claim it
+supports is *"whenever these models confuse two classes, it is essentially always this pair"*
+— not *"the models are wrong 5.7% of the time"*.
+
+Two structures beyond the headline are worth noting. The confusion is **near-symmetric**
+(87 one way, 89 the other), so neither gesture is systematically mistaken for the other — it
+is genuine ambiguity rather than a bias toward one label. And the **background column is
+larger than the whole class-confusion story**: 415 missed hands against 179 class errors, so
+across the study these detectors fail to find a hand more than twice as often as they name it
+wrongly.
 
 ---
 

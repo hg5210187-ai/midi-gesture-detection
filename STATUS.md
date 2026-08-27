@@ -351,7 +351,7 @@ it. AUC is threshold-free and is the metric to lead with.
 
 ### What the matrices say
 
-**79 of 80 class confusions are thumbout ↔ closedhand; exactly one involves openhand.**
+**176 of 179 class confusions (98.3%) are thumbout ↔ closedhand; only 3 involve openhand.**
 openhand mean AUC 0.9985, thumbout 0.9508, closedhand 0.9509 — the latter two are confused
 with each other and almost nothing else. thumbout is a fist plus an extended thumb, so it
 differs from closedhand by one digit; the same pair produced the four annotation errors found

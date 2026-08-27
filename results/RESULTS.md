@@ -118,15 +118,15 @@ had no source; it was asserted rather than measured or cited. The measured value
 
 ## 6. Error structure — one hard pair
 
-Pooled over the 15 models that learned the task (`results/METRICS.md`):
+Pooled over the 35 models that learned the task (`results/METRICS.md`):
 
-**79 of 80 class confusions are thumbout ↔ closedhand. Exactly one involves openhand.**
+**176 of 179 class confusions (98.3%) are thumbout ↔ closedhand. Only 3 involve openhand.**
 
-| class | mean AUC |
-|---|---|
-| openhand | 0.9985 |
-| thumbout | 0.9508 |
-| closedhand | 0.9509 |
+| class | mean AUC | worst model |
+|---|---|---|
+| openhand | 0.9979 | 0.9650 |
+| thumbout | 0.9497 | 0.8533 |
+| closedhand | 0.9550 | 0.8906 |
 
 thumbout is a fist with the thumb extended — one digit from closedhand — while openhand
 differs in global hand shape. The same pair produced the four annotation errors found during
