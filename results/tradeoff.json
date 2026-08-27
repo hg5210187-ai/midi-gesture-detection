@@ -5,13 +5,13 @@
       "geom": "hbb",
       "size": "l",
       "imgsz": 320,
-      "ms": 10.6,
+      "ms": 9.35,
       "burst_ms": 9.36,
       "sustained": true,
       "map": 0.801815,
       "sd": 0.035584,
       "folds": 3,
-      "meets": false
+      "meets": true
     },
     {
       "geom": "hbb",

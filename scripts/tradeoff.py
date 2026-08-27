@@ -66,6 +66,11 @@ def load_sustained():
             stem = r["package"].replace(".mlpackage", "")
             name, _, z = stem.rpartition("_")
             g, _, s = name.partition("-")
+            # This figure is the YOLO26 arm only. DEIMv2 sustained files live in the same
+            # directory and do not use the "<geom>-<size>_<imgsz>" convention, so skip
+            # anything that does not parse rather than crashing on it.
+            if g not in ("hbb", "obb") or not z.isdigit():
+                continue
             k = (g, s, int(z))
             cold = (i == 0)                       # first model in a batch starts cold
             prev = out.get(k)

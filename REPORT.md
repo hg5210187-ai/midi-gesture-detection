@@ -256,6 +256,7 @@ latency bucketed into 15 wall-clock windows.
 | obb-s@320 | cold | 8.29 | 9.79 | 7.73 → 8.53 | **holds** |
 | hbb-n@416 | cold | 8.88 | 12.47 | 8.74 → 10.84 | breach @ 540 s |
 | hbb-s@320 | *preheated* | 9.38 | 12.07 | 7.87 → 9.19 | breach @ 300 s |
+| **hbb-l@320** | **cold** | **9.35** | **9.78** | 9.12 → 9.36 | **holds** |
 | hbb-m@320 | cold | 9.96 | — | 9.17 → 10.08 | breach @ 360 s |
 | hbb-l@320 | *preheated* | 10.60 | 14.43 | 9.76 → 11.33 | breach @ 360 s |
 
@@ -265,7 +266,12 @@ Three findings, each of which changed a verdict:
 flat for 5–9 minutes, transitions, and plateaus. A burst median above roughly 8 ms does not
 survive. Four configurations that passed the burst test fail here.
 
-**Thermal start matters as much as the model.** `hbb-s@320` read 9.38 ms preheated and
+**Thermal start matters as much as the model, and it can flip a verdict.** `hbb-s@320` read
+9.38 ms preheated and 7.93 ms cold — a 1.45 ms gap. `hbb-l@320` read **10.60 ms preheated
+(breaching at 360 s) and 9.35 ms cold, holding all 15 windows** — a 1.25 ms gap, and the
+difference between "not deployable" and "deployable". The two gaps agreeing to within
+0.2 ms suggests the preheating penalty is a stable ~1.2–1.5 ms for these configurations
+rather than a per-model quirk. `hbb-s@320` read 9.38 ms preheated and
 **7.93 ms cold** — a 1.45 ms difference, larger than the gap between several models. Within a
 batch only the first model starts cold, and 60 s of cooldown does not undo a 15-minute run.
 The preheated reading would have disqualified the model that is now the deployment choice.
@@ -644,7 +650,9 @@ latency budget rather than a question the data can settle.
 
 - **Sustained latency covers 6 of 30 cells.** The rest are burst-only. The six are the ones at
   or near the budget, which is where it changes a verdict — but the coverage is partial.
-- **`hbb-l@320` was measured preheated only**, so its breach is unresolved rather than proven.
+- ~~`hbb-l@320` was measured preheated only~~ — **resolved.** Re-run from cold it holds
+  the budget at 9.35 ms across all 15 windows (p95 9.78, drift +0.24 ms). The preheated
+  breach was an artifact of thermal start, not a property of the configuration.
 - **DEIMv2 latency is measured for one variant.** The DINOv3 line converts silently wrong.
 - **Sustained runs are 15 minutes.** The plateau looks stable but was not measured beyond that;
   a full performance is longer.

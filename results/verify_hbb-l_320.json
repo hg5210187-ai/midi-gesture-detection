@@ -1,0 +1,14 @@
+{
+  "weights": "hbb-l.pt",
+  "package": "hbb-l_320.mlpackage",
+  "imgsz": 320,
+  "frame": "e07_p01.jpg",
+  "conf": 0.25,
+  "n_pytorch": 2,
+  "n_coreml": 2,
+  "label_match": "2/2",
+  "max_box_dev_px": 1.899,
+  "max_score_dev": 0.0144,
+  "tolerance_px": 2.0,
+  "ok": true
+}

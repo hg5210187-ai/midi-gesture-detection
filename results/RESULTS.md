@@ -20,7 +20,18 @@ The deployable model is **YOLO26-s, axis-aligned, 320 px**:
 | budget | holds all 15 windows, 111,884 iterations |
 | misses / false alarms (90 anns) | 3 / 3 |
 
-It is the highest-accuracy configuration that holds the 10 ms budget under sustained load.
+It is the highest-accuracy configuration that holds the 10 ms budget under sustained load —
+on **cross-validation**, which is the selection instrument. See the caveat below: `hbb-l@320`
+was subsequently shown to hold the budget too, and generalises considerably better.
+
+> **`hbb-l@320` is a live alternative.** Re-measured from a cold start it holds the budget at
+> 9.35 ms (p95 9.78) across all 15 windows. On cross-validation it is statistically tied with
+> the deployed model — 0.8018 ± 0.0356 against 0.8056 ± 0.0437, a 0.004 gap inside both SDs —
+> but on the **held-out test set it scores 0.7586 ± 0.0142 against 0.6855 ± 0.0500**, and with
+> a third of the spread. It costs 1.4 ms more and leaves 0.65 ms of headroom instead of 2.1 ms.
+> Selection was made on cross-validation before the test set was read, so the recommendation
+> stands as stated — but a reader choosing on generalisation rather than on CV would pick
+> `hbb-l@320`, and the data supports that.
 
 ---
 
@@ -69,7 +80,8 @@ instrument runs continuously, so every candidate was also run for 15 minutes:
 | hbb-n@416 | cold | 8.88 | 12.47 | 8.74 → 10.84 | breach @ 540s |
 | hbb-s@320 | **preheated** | 9.38 | 12.07 | 7.87 → 9.19 | breach @ 300s |
 | hbb-m@320 | cold | 9.96 | 10.87 | 9.17 → 10.08 | breach @ 360s |
-| hbb-l@320 | **preheated** | 10.60 | 14.43 | 9.76 → 11.33 | breach @ 360s |
+| **hbb-l@320** | **cold** | **9.35** | **9.78** | 9.12 → 9.36 | **holds all 15** |
+| hbb-l@320 | preheated *(superseded)* | 10.60 | 14.43 | 9.76 → 11.33 | breach @ 360s |
 
 Three findings, all of which changed a conclusion:
 
@@ -171,7 +183,8 @@ YOLO26 cell (0.837).
   Core ML and reproduces PyTorch exactly (0.57 px box deviation); s/m/l/x (DINOv3) convert
   silently and produce boxes 213–277 px wrong, so their latency is deliberately not reported.
   DEIMv2 also cannot change resolution — the architecture is fixed at 640.
-- **`hbb-l@320` was only measured preheated**, so its breach is unresolved rather than proven.
+- ~~`hbb-l@320` was only measured preheated~~ — **resolved.** From a cold start it holds
+  the budget at 9.35 ms for all 15 windows. Its preheated breach was thermal, not intrinsic.
 - **Sustained runs are 15 minutes.** A full performance is longer; the plateau looks stable
   but was not measured beyond that.
 - **No thermal telemetry.** `pmset -g therm` reports nothing unprivileged on this machine, so

@@ -255,7 +255,9 @@ Failed rows are deliberately not counted as "done", so a restart re-runs them by
 
 Optional, if the paper wants them:
 1. Sustained runs longer than 15 min (the plateau looks stable but was not measured further).
-2. `hbb-l@320` re-run **from cold** — its breach was measured preheated, so it is unresolved.
+2. ~~`hbb-l@320` re-run from cold~~ — **done.** 9.35 ms median, p95 9.78, holds all 15
+   windows. The preheated 10.60 ms breach was thermal. Package re-verified against its
+   checkpoint first (1.899 px max box deviation) — `results/verify_hbb-l_320.json`.
 3. A Core ML path for DEIMv2's DINOv3 line — those four convert silently wrong (RESULTS.md §9).
 
 ## 6. The rented boxes — both finished with
