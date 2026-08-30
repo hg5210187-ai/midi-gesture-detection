@@ -249,6 +249,8 @@ Burst benchmarks (a few seconds) describe a cold machine. An instrument runs con
 a MacBook Air has no fan. Every candidate was therefore also run for **15 minutes** with
 latency bucketed into 15 wall-clock windows.
 
+Plotted in **Figure 7 (§8)**; the table below is the same data.
+
 | model | thermal start | median ms | p95 | first → last window | verdict |
 |---|---|---|---|---|---|
 | hbb-n@320 | cold | 7.22 | 8.05 | 7.19 → 7.91 | **holds** |
@@ -605,6 +607,32 @@ budget, and it cannot trade resolution for speed because the architecture is fix
 Beyond that, one working Core ML export out of eight variants is not a basis for recommending
 a family. YOLO26 is recommended for sustained latency and toolchain reliability, not for
 superior accuracy.
+
+---
+
+### Figure 7 — sustained latency, every 15-minute run
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="figures/sustained_latency_dark.png">
+  <img alt="Sustained latency for every 15-minute run on the M4, median with whisker to p95, showing which configurations hold the 10 ms budget and how thermal start changes two verdicts" src="figures/sustained_latency_light.png">
+</picture>
+
+*Vector version: `figures/sustained_latency_light.pdf`*
+
+One row per 15-minute run, sorted by median; the dot is the median and the whisker runs to
+p95. p95 earns its place here — for an instrument, variable lag cannot be anticipated the way
+uniform lag can, and `hbb-n@416` shows why: its median of 8.88 ms sits inside the budget while
+its p95 of 12.47 ms does not.
+
+**Thermal start decides two of the nine verdicts.** `hbb-s@320` and `hbb-l@320` each breach
+when preheated and hold from cold, and the connectors mark the shift. The two gaps agree to
+within 0.2 ms — **+1.45 ms and +1.25 ms** — which is what turns "a preheated reading is not a
+cold reading" from a procedural rule into a measured property of the machine.
+
+The figure also shows how little separates the deployable set from the rest: `hbb-l@320` holds
+at 9.35 ms and `hbb-m@320` breaches at 9.96 ms, 0.6 ms apart. Any claim resting on that margin
+needs the cold/preheated distinction to be made carefully, which is the practical reason this
+study insists on it.
 
 ---
 

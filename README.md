@@ -72,6 +72,7 @@ data/splits/               fold assignment
 collection/                the shot list the photos were taken from
 figures/                   38 confusion matrices, 38 ROC curves, publication figures,
                            aggregate_confusion_{light,dark}.{png,pdf}  all 35 working models
+                           sustained_latency_{light,dark}.{png,pdf}    every 15-minute run
                            family_comparison_{light,dark}.{png,pdf}  YOLO26 vs DEIMv2
                            tradeoff.png                              HBB vs OBB vs resolution
                            shooting_chart_{light,dark}.png
