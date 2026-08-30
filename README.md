@@ -14,6 +14,9 @@ including the [**shooting chart**](figures/shooting_chart_light.png): all 60 pho
 gesture on which hand, at which rotation, in one page. The images are not distributed (they
 show an identifiable person), so this is the recipe.
 
+📊 **[results/RANKINGS.md](results/RANKINGS.md)** — all four ranking tables: accuracy and
+latency, each split by architecture family.
+
 ⚙️ **[TRAINING_CONFIG.md](TRAINING_CONFIG.md)** — the hyperparameters actually used, read back
 out of the 90 checkpoints. Note that `optimizer=auto` means the recorded `lr0` is *not* the
 learning rate that ran.
@@ -63,6 +66,7 @@ DATA_COLLECTION.md         how to collect an equivalent dataset
 TRAINING_CONFIG.md         hyperparameters as actually used, recovered from checkpoints
 STATUS.md                  operational record: environment, versions, resume notes
 results/RESULTS.md         results, condensed
+results/RANKINGS.md        accuracy + latency ranked, YOLO26 and DEIMv2 separately
 results/METRICS.md         confusion-matrix and AUC methodology
 results/LATENCY.md         latency methodology
 

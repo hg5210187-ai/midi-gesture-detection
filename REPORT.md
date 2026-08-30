@@ -300,6 +300,10 @@ DEIMv2 also cannot change resolution — the architecture is fixed at 640.
 
 ## 7. Results
 
+Full ranked tables — accuracy and latency, each split by family — are in
+**[`results/RANKINGS.md`](results/RANKINGS.md)**. This section carries the top rows and what
+they mean.
+
 ### Accuracy — YOLO26, exact IoU
 
 | cell | CV mAP50-95 | test mAP50-95 | macro AUC |
