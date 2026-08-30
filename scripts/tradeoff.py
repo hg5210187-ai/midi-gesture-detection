@@ -172,12 +172,26 @@ def main():
 
     marker = {320: "o", 416: "s", 640: "^"}
     colour = {"hbb": "#3d5a80", "obb": "#d1495b"}
+    # THREE EVIDENCE LEVELS, NOT TWO. A point inside the budget region because a 15-minute
+    # sustained run says so is not the same claim as one inside it because a 100-iteration
+    # burst says so. Of the six configurations measured under sustained load, TWO passed on
+    # burst and then breached (hbb-n@416 at 8.57, hbb-m@320 at 9.32) -- and four of the
+    # unverified sub-10 ms points sit in that same 8.5-9.6 ms band. Filling them identically
+    # would present an inference at the confidence of a measurement.
     for p in pts:
-        ax.errorbar(p["ms"], p["map"], yerr=p["sd"], fmt=marker.get(p["imgsz"], "o"),
-                    color=colour[p["geom"]], ms=7, capsize=3, lw=1,
-                    alpha=1.0 if p["meets"] else 0.35, zorder=3)
+        m = marker.get(p["imgsz"], "o")
+        c = colour[p["geom"]]
+        if p["meets"] and p["sustained"]:
+            face, alpha, lw = c, 1.0, 1.0          # measured and holds
+        elif p["meets"]:
+            face, alpha, lw = "none", 0.95, 1.4    # burst only -- provisional
+        else:
+            face, alpha, lw = c, 0.28, 1.0         # fails
+        ax.errorbar(p["ms"], p["map"], yerr=p["sd"], fmt=m, mfc=face, mec=c,
+                    ecolor=c, ms=7.5, capsize=3, lw=1, mew=lw, alpha=alpha, zorder=3)
         ax.annotate(f"{p['size']}", (p["ms"], p["map"]), textcoords="offset points",
-                    xytext=(7, -3), fontsize=7.5, color="#444")
+                    xytext=(7, -3), fontsize=7.5, color="#444",
+                    alpha=1.0 if p["meets"] else 0.5)
     if len(front) > 1:
         ax.plot([p["ms"] for p in front], [p["map"] for p in front],
                 color="#666", lw=1, ls=":", zorder=2)
@@ -190,14 +204,26 @@ def main():
                for g in ("hbb", "obb")]
     handles += [plt.Line2D([], [], color="#888", marker=m, ls="", label=f"{z} px")
                 for z, m in marker.items()]
-    ax.legend(handles=handles, fontsize=8, frameon=False, loc="lower right", ncol=2)
+    handles += [
+        plt.Line2D([], [], color="#555", marker="o", ls="", label="holds (15-min run)"),
+        plt.Line2D([], [], color="#555", marker="o", ls="", mfc="none", mew=1.4,
+                   label="burst only — unverified"),
+    ]
+    ax.legend(handles=handles, fontsize=7.6, frameon=False, loc="lower right", ncol=2)
     ax.set_xlabel("Core ML latency on MacBook Air M4 — median ms")
     ax.set_ylabel("mAP50-95  (3-fold mean ± SD)")
-    ax.set_title("Accuracy vs latency: shaded region is deployable", fontsize=11)
+    ax.set_title("Accuracy vs latency: shaded region is under the 10 ms budget", fontsize=11)
+    n_unv = sum(1 for p in pts if p["meets"] and not p["sustained"])
+    fig.text(0.5, 0.012,
+             f"Hollow markers are under budget on a burst measurement only — {n_unv} of the "
+             f"{sum(1 for p in pts if p['meets'])} points inside the region. Two of the six "
+             f"configurations that were\nmeasured under sustained load passed on burst and then "
+             f"breached, both in the 8.5–9.6 ms band, so treat hollow points there as unproven.",
+             ha="center", fontsize=7.8, color="#777")
     for s in ("top", "right"):
         ax.spines[s].set_visible(False)
     ax.grid(alpha=0.15, lw=0.6)
-    fig.tight_layout()
+    fig.tight_layout(rect=[0, 0.055, 1, 1])
     args.out.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(args.out, dpi=170)
     print(f"\nwrote {args.out}\nwrote {args.table}")
