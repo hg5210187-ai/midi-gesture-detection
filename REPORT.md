@@ -185,6 +185,27 @@ kept alongside. The caveat is stated in every output: that threshold is tuned on
 predictions it scores, so P/R/F1 are an upper bound. **AUC is threshold-free**, which is why
 it leads the comparison.
 
+### Decision: the test set is read once, at the end, for every model
+
+15 photographs and 30 annotations from **three places that appear in no fold**, held aside
+before any training. The protocol has three parts, and each is a commitment made in advance:
+
+1. **Selection happens on cross-validation, never on the test set.** The deployed model was
+   chosen from the 90-annotation CV tables; the test set was not consulted to make that choice.
+2. **It is read once**, at the end, for **all 38 models** — not repeatedly, and not only for
+   the winner. Reporting it for every model is what lets a reader check whether the CV ranking
+   held up rather than take one number on trust.
+3. **Each model's three fold checkpoints are each scored on it**, and reported as mean ± SD —
+   the same shape as the CV numbers, so the two are directly comparable. The alternative,
+   retraining on all 90 annotations, would produce a different model from the one measured
+   everywhere else in this study.
+
+**With 30 annotations, one instance moves a class AP by 3.3 points.** Differences under about
+0.10 between two models are not distinguishable here. The test table is corroboration — *did
+the CV ranking broadly hold?* — and is not something to re-sort by. The 90-annotation
+cross-validation is the more precise instrument and is what carries the model-selection
+argument.
+
 ### Decision: compute IoU exactly, for every architecture
 
 Ultralytics matches oriented boxes with **ProbIoU** (a Gaussian surrogate) and axis-aligned
@@ -371,10 +392,30 @@ which is corroboration that the difficulty is intrinsic to the gesture vocabular
 an artifact of labelling. **It is a gesture-design problem, not a model problem** — and the
 cheapest fix is redesigning `thumbout` to differ from `closedhand` by more than a thumb.
 
+### Held-out test set
+
+All 38 models, scored once on the 30 untouched annotations. Full tables in
+[`results/RANKINGS.md`](results/RANKINGS.md); raw values in `results/test_set.json`.
+
+| rank | model | test mAP50-95 |
+|---|---|---|
+| 1 | deimv2/s | **0.8014 ± 0.0243** |
+| 2 | deimv2/l | 0.7928 ± 0.0345 |
+| 3 | yolo26/hbb-x @ 416 | 0.7836 ± 0.0386 |
+| 4 | deimv2/x | 0.7824 ± 0.0275 |
+| 5 | yolo26/hbb-x @ 320 | 0.7692 ± 0.0127 |
+| 6 | yolo26/hbb-m @ 416 | 0.7658 ± 0.0149 |
+
+**The CV ranking broadly held, but not exactly.** DEIMv2 takes the top two places here as it
+does on cross-validation, and the HBB cells lead the YOLO26 arm in both — but the ordering
+*within* the leaders shifts, and `hbb-x` rises from 3rd/8th on CV to 3rd/5th here. With 30
+annotations those shifts are inside the noise, which is the point of §5's caveat: read this
+table as corroboration, not as a re-ranking.
+
 ### Generalisation
 
 Mean CV → test gap: **−0.042** (YOLO), **−0.052 ± 0.011** (DEIMv2). Uniform across a 6.6×
-capacity range, which is what an honest generalisation gap looks like — the test set is four
+capacity range, which is what an honest generalisation gap looks like — the test set is three
 unseen places.
 
 One exception matters: **`hbb-s@320` has the worst gap in the study, −0.120.** Its CV

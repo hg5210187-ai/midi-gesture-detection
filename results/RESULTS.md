@@ -151,7 +151,7 @@ adjacent one, which is a gesture-design problem rather than a model problem.
 
 Mean CV → test gap across all 30 YOLO cells: **-0.0417**; DEIMv2 **−0.052 ± 0.011**.
 Uniform across a 6.6× capacity range, which is what an honest generalisation gap looks like —
-the test set is four unseen places.
+the test set is three unseen places.
 
 One exception matters for model choice: **`hbb-s@320` has the worst gap in the study, −0.120**,
 against a mean of −0.042. Its CV advantage transfers less well than its neighbours'. It is
