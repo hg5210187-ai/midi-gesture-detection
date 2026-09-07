@@ -106,7 +106,7 @@ hbb-m@416 0.8373 ± 0.0056, hbb-l@416 0.8225, hbb-x@416 0.8155 — **all HBB, al
 Two findings from the completed sweep:
 
 - **Lower resolution is better, not merely faster.** The best cells are at 416 and 320; every
-  640 px cell is beaten. With 60 training images, 640 px appears to give the model more room
+  640 px cell is beaten. *(caveat: the 640 cells were trained under ultralytics 8.4.117 and the 320/416 cells under 8.4.45, so this specific comparison crosses a version boundary — see TRAINING_CONFIG.md)* With 60 training images, 640 px appears to give the model more room
   to overfit, and hands occupy a large fraction of the frame so 320 px still resolves a thumb.
 - The remembered figure `obb-s-416 = 0.8533 ± 0.0117` from an early Kaggle session was
   **wrong** — measured 0.8291 ± 0.0314 by ultralytics, and 0.6277 ± 0.0564 with exact IoU.

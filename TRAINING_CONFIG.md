@@ -39,6 +39,47 @@ for k in sorted(agg): print(k, dict(agg[k]))
 | `close_mosaic` | 10 | mosaic disabled for the last 10 epochs |
 | `fliplr` | 0.5 | |
 
+## Environments — and a version confound
+
+Recorded per run (`env` in `results.jsonl`) or read back from the checkpoints:
+
+| stage | runs | hardware | python | torch | ultralytics |
+|---|---|---|---|---|---|
+| YOLO26 @ 640 | 30 | Kaggle T4 | — *(not recorded)* | — *(not recorded)* | **8.4.117** |
+| YOLO26 @ 320/416 | 60 | vast.ai RTX 4090 | 3.12.13 | 2.12.0+cu126 | **8.4.45** |
+| DEIMv2 (all) | 24 | vast.ai RTX 4090 | 3.12.13 | 2.12.0+cu130 | n/a |
+| Analysis / evaluation | — | Apple M4, macOS 15.5 | 3.13.14 | 2.11.0 | 8.4.45 |
+| Core ML export + latency | — | Apple M4, macOS 15.5 | 3.13.14 | **2.7.1** | 8.4.118 |
+
+> **⚠ The 640 px cells were trained under a different ultralytics version from the 320/416
+> cells** — 8.4.117 against 8.4.45, on different dates (11 vs 13 August) and different
+> hardware. The 640 runs predate this study's `env_fingerprint`, so their python and torch
+> versions were never recorded; only the ultralytics version survives, inside the checkpoints.
+>
+> **This partially confounds the "lower resolution is more accurate" finding**, because the
+> 640-vs-lower comparison crosses the version boundary. Two things limit the damage but do not
+> remove it:
+>
+> - The effect is large — `hbb-m` scores 0.7364 at 640 and 0.8373 at 416, a gap of 0.10 that a
+>   patch-series bump is unlikely to produce on its own.
+> - The **320 vs 416 comparison is clean** — both are 8.4.45 on the same machine, and there
+>   416 beats 320 in most cells.
+>
+> But the specific claim *"every 640 px cell is beaten"* rests on the confounded comparison and
+> should be stated with this caveat attached. Re-running the 640 cells under 8.4.45 would
+> settle it; that has not been done.
+>
+> The **deployment comparison is unaffected**: `hbb-s@320` and `hbb-l@320` were trained in the
+> same session, on the same machine, under the same version.
+
+**Note the torch version differs between the two vast.ai boxes** — cu126 for the YOLO sweep,
+cu130 for DEIMv2 — because they were separate rentals with different images. Both are torch
+2.12.0; only the CUDA build differs.
+
+**The Core ML environment is deliberately pinned to torch 2.7.1**, not the 2.11 used for
+analysis: coremltools 9.0 reports 2.7.0 as its newest tested version, and on torch 2.13 the
+conversion dies inside coremltools' own `_cast` op.
+
 ---
 
 ## Optimizer and learning rate: why the checkpoint is misleading

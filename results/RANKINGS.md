@@ -52,7 +52,7 @@ hands and do not appear until below them — that reversal is a consequence of s
 with exact polygon IoU rather than ProbIoU.
 
 **Lower resolution wins.** The best cells are at 416 and 320; every 640 px cell is
-beaten. With 60 training images, 640 px appears to give the model more room to overfit.
+beaten. With 60 training images, 640 px appears to give the model more room to overfit. *(caveat: the 640 cells were trained under ultralytics 8.4.117 and the 320/416 cells under 8.4.45, so this specific comparison crosses a version boundary — see TRAINING_CONFIG.md)*
 
 ---
 

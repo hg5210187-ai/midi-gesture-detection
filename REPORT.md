@@ -319,7 +319,7 @@ they mean.
 once scored with exact geometry.
 
 **Lower resolution is more accurate, not merely faster.** Every 640 px cell is beaten by cells
-at 416 or 320. With 60 training images, 640 px appears to give the model more room to overfit;
+at 416 or 320. *(caveat: the 640 cells were trained under ultralytics 8.4.117 and the 320/416 cells under 8.4.45, so this specific comparison crosses a version boundary — see TRAINING_CONFIG.md)* With 60 training images, 640 px appears to give the model more room to overfit;
 hands occupy a large fraction of the frame, so 320 px still resolves a thumb — the one feature
 that separates the hard class pair.
 
